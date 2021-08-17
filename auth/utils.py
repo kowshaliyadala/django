@@ -22,7 +22,7 @@ def requireLogin(to_authenticate_fn):
 
 def verify_token(token):
     try:
-        data = jwt.decode(token, settings.SECRET_KEY, algorithms='H5256')
+        data = jwt.decode(token, settings.SECRET_KEY, algorithms='HS256')
     except:
         return None
     return {'email': data('email')}
